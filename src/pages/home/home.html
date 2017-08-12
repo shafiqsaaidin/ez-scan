@@ -1,14 +1,39 @@
+<!--
+  Video tutorial: https://youtu.be/2N6MZVULgDM
+  sample code : https://ionicacademy.com/ionic-qr-code-generator-reader/
+-->
+
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Net-Scanner
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      <p>Result from Scan: {{ scannedCode }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="data.response">
+    <ion-card-header>
+      <p>Response</p>
+    </ion-card-header>
+    <ion-card-content>
+      <b>{{data.response}}</b>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Identity Card Number</ion-label>
+      <ion-input type="text" name="ic" [(ngModel)]="data.ic"></ion-input>
+    </ion-item>
+    <button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
+    <button ion-button full icon-left (click)="submit()"><ion-icon name="send"></ion-icon>Submit</button>
+
+  </ion-list>
 </ion-content>
+
