@@ -18,9 +18,14 @@ $ ionic start myBlank blank
 Then, to run it, cd into `myBlank` and run:
 
 ```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+$ ionic cordova platform add android
+$ ionic cordova run android
 ```
 
-Substitute ios for android if not on a Mac.
+### What it need to run this scanner
+
+```bash
+$ ionic cordova plugin add phonegap-plugin-barcodescanner
+$ npm install --save @ionic-native/barcode-scanner
+```
 
